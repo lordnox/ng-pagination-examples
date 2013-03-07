@@ -2,7 +2,15 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <style>
+    <!-- Le styles -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <style>
+      body {
+        padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+      }
+    </style>
+    <link href="css/bootstrap-responsive.css" rel="stylesheet">
+    <style>
     [ng-cloak] {
       display: none;
     }
@@ -34,8 +42,21 @@
       'js/services.js',
       'js/controllers.js',
       'js/filters.js',
-      'js/directives.js'
-    ], function() {
+      'js/directives.js',
+      //'js/jquery.js',
+      //'js/bootstrap-transition.js',
+      //'js/bootstrap-alert.js',
+      //'js/bootstrap-modal.js',
+      //'js/bootstrap-dropdown.js',
+      //'js/bootstrap-scrollspy.js',
+      //'js/bootstrap-tab.js',
+      //'js/bootstrap-tooltip.js',
+      //'js/bootstrap-popover.js',
+      //'js/bootstrap-button.js',
+      //'js/bootstrap-collapse.js',
+      //'js/bootstrap-carousel.js',
+      //'js/bootstrap-typeahead.js'
+        ], function() {
       // when all is done, execute bootstrap angular application
       angular.bootstrap(document, ['myApp']);
     });
