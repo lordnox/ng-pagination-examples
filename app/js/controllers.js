@@ -13,6 +13,25 @@ var names_male        = ["Andrew Beckel","Mauricio Esterly","Gale Tarry","Winfre
     return "http://lorempixel.com/200/100/" + cat + "/" + (id+1) + "/" + text;
   };
 
+function MenuController(scope, location) {
+  scope.pages = [
+    { href: "#/example1", name: "Example 1 - Table-Pagination" },
+    { href: "#/example2", name: "Example 2 - Pageselector" },
+    { href: "#/example3", name: "Example 3 - Imageslider" }
+  ];
+  scope.click = function(item) {
+    scope.pages.map(function(item) {
+      item.active = false;
+    });
+    item.active = true;
+  };
+  var uri = location.$$url;
+  scope.pages.map(function(item) {
+    item.active = item.href.substr(1) === uri;
+  });
+}
+MenuController.$inject = ['$scope', '$location'];
+
 function ExampleController_1(scope) {
   // seperate pagination from data
   scope.pagination = {
