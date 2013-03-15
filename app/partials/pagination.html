@@ -3,31 +3,34 @@
     <li ng-show="showPreviousPage" ng-click="setPage(currentPage - 1)" ng-class="{disabled: onFirstPage}">
       <a>&laquo;</a>
     </li>
-    <li ng-show="showFirstPage" ng-click="setPage(0)" ng-class="{disabled: onFirstPage}">
+    <li ng-show="showFirstPage" ng-click="setPage(0)" ng-class="{active: onFirstPage}">
       <a>&laquo; First</a>
     </li>
-    <li ng-repeat="page in visiblePages" ng-click="setPage(page.index)" ng-class="{disabled: page.clickable}">
+    <li ng-repeat="page in visiblePages" ng-click="setPage(page.index)" ng-class="{disabled: !page.clickable, active: page.active}">
       <a>{{page.text}}</a>
     </li>
-    <li ng-show="showLastPage" ng-click="setPage(lastPage)" ng-class="{disabled: onLastPage}">
+    <li ng-show="showLastPage" ng-click="setPage(maxPages)" ng-class="{active: onLastPage}">
       <a>Last &raquo;</a>
     </li>
     <li ng-show="showNextPage" ng-click="setPage(currentPage + 1)" ng-class="{disabled: onLastPage}">
       <a>&raquo;</a>
     </li>
   </ul>
-  <div>list-size: {{size}}</div>
-  <div>Padding: {{padding | json}}</div>
-  <div>onFirstPage: {{onFirstPage | json}}</div>
-  <div>onLastPage: {{onLastPage | json}}</div>
-  <div ng-click="showPreviousPage = !showPreviousPage">showPreviousPage: {{showPreviousPage | json}}</div>
-  <div ng-click="showFirstPage = !showFirstPage">showFirstPage: {{showFirstPage | json}}</div>
-  <div ng-click="showLastPage = !showLastPage">showLastPage: {{showLastPage | json}}</div>
-  <div ng-click="showNextPage = !showNextPage">showNextPage: {{showNextPage | json}}</div>
-  <div>pageSize: {{pageSize | json}}</div>
-  <div>currentPage: {{currentPage | json}}</div>
-  <div>lastPage: {{lastPage | json}}</div>
-  <div>_lastPage: {{lPage | json}}</div>
+    <div>list-size: {{visiblePages}}</div>
+  <div ng-show="debug">
+    <div>list-size: {{size}}</div>
+    <div>Padding: {{padding | json}}</div>
+    <div>onFirstPage: {{onFirstPage | json}}</div>
+    <div>onLastPage: {{onLastPage | json}}</div>
+    <div ng-click="showPreviousPage = !showPreviousPage">showPreviousPage: {{showPreviousPage | json}}</div>
+    <div ng-click="showFirstPage = !showFirstPage">showFirstPage: {{showFirstPage | json}}</div>
+    <div ng-click="showLastPage = !showLastPage">showLastPage: {{showLastPage | json}}</div>
+    <div ng-click="showNextPage = !showNextPage">showNextPage: {{showNextPage | json}}</div>
+    <div>pageSize: {{pageSize | json}}</div>
+    <div>currentPage: {{currentPage | json}}</div>
+    <div>lastPage: {{lastPage | json}}</div>
+    <div>_lastPage: {{lPage | json}}</div>
+  </div>
 
 <!--
         numberOfPages: "Page {{index}} of {{total}}",

@@ -1,0 +1,11 @@
+
+<div class="border: 1px solid black" >
+  <div class="container" ng-repeat="(index, item) in data | pageSlice:pagination.page:pagination.page+pagination.size">
+    <div>
+      Text: {{item.text}}
+    </div>
+  </div>
+  <div pagination="pagination.length" page="pagination.page" size="1" disable-last-page disable-first-page></div>
+</div>
+
+<div>pagination: {{pagination | json }}</div>

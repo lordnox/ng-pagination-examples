@@ -1,0 +1,9 @@
+
+<div class="border: 1px solid black" >
+  <div class="container" ng-repeat="(index, item) in data | pagination:pagination.page:1">
+    <div>
+      Text: {{item.text}}
+    </div>
+  </div>
+  <div pagination="data.length" page="pagination.page" size="1" disable-last-page disable-first-page></div>
+</div>

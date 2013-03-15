@@ -9,37 +9,62 @@ var names_male    = ["Andrew Beckel","Mauricio Esterly","Gale Tarry","Winfred Dr
     return list[Math.floor((list.length - 1) * Math.random())];
   };
 
-function MyCtrl1(scope) {
-  scope.list = [];
-  scope.names = names;
-  scope.pageSize = 50;
-  scope.page = 0;
-  scope.lastPage = -1;
-
+function ExampleController_1(scope) {
+  // seperate pagination from data
+  scope.pagination = {
+    page: 0,
+    size: 15,
+    last: -1
+  };
+  // here is the data
+  scope.data = {
+    list: []
+  };
+  // fill in the data
   for(var i = 0; i < 500; i++) {
     var name = randListItem(names)
       , male = names_male.indexOf(name) !== -1;
-    scope.list.push({
+    scope.data.list.push({
       name: name
     , male: male
     , index: i
     });
   }
-
-  scope.paginationPrev = function() {
-    console.log('select previous page');
-  };
-  scope.paginationPage = function(index) {
-    console.log('select ' + index + ' page');
-  };
-  scope.paginationNext = function() {
-    console.log('select next page');
-  };
-
 }
-MyCtrl1.$inject = ['$scope'];
+ExampleController_1.$inject = ['$scope'];
 
 
-function MyCtrl2() {
+function ExampleController_2(scope) {
+  scope.pagination = {
+    page: 0
+  };
+  scope.data = [
+    {text: 'Page 1'},
+    {text: 'Page 2'},
+    {text: 'Page 3'},
+    {text: 'Page 4'}
+  ];
 }
-MyCtrl2.$inject = [];
+ExampleController_2.$inject = ['$scope'];
+
+
+function ExampleController_3(scope) {
+  scope.pagination = {
+    page: 0,
+    length: 0,
+    size: 4
+  };
+  scope.data = [
+    {text: 'Image 1'},
+    {text: 'Image 2'},
+    {text: 'Image 3'},
+    {text: 'Image 4'},
+    {text: 'Image 5'},
+    {text: 'Image 6'},
+    {text: 'Image 7'},
+    {text: 'Image 8'}
+  ];
+  scope.pagination.length = scope.data.length - scope.pagination.size + 1;
+}
+
+ExampleController_3.$inject = ['$scope'];

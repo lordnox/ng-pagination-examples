@@ -1,0 +1,18 @@
+
+
+<div>{{pagination.page}} of {{pagination.last}}</div>
+<div pagination="data.list" page="pagination.page" size="pagination.size" last-page="pagination.last"></div>
+
+<table class="table">
+  <thead>
+    <th>#</th>
+    <th>Name</th>
+    <th>Male</th>
+  </thead>
+
+  <tr ng-repeat="(index, item) in data.list | pagination:pagination.page:pagination.size">
+    <td>{{item.index}}</td>
+    <td>{{item.name}}</td>
+    <td>{{item.male}}</td>
+  </tr>
+</table>
