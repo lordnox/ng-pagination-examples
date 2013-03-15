@@ -1,11 +1,9 @@
 
 <div class="border: 1px solid black" >
-  <div class="container" ng-repeat="(index, item) in data | pageSlice:pagination.page:pagination.page+pagination.size">
-    <div>
-      Text: {{item.text}}
-    </div>
+  <div class="container" style="display: inline;" ng-repeat="(index, item) in data | pageSlice:pagination.page:pagination.page+pagination.size">
+    <img src="{{item.src}}" alt="{{item.text}}" width="200" height="100" />
   </div>
   <div pagination="pagination.length" page="pagination.page" size="1" disable-last-page disable-first-page></div>
 </div>
 
-<div>pagination: {{pagination | json }}</div>
+<div>Tanks to <a href="http://lorempixel.com/"><img src="/img/lorempixel-logo.png" height="20" alt="lorempixel" /></a></div>
